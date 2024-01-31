@@ -17,7 +17,8 @@ import monprojet.entity.*;
 public class ConsoleApp implements CommandLineRunner {
     @Autowired // Auto-initialisé par Spring
     private CountryRepository countryDAO;
-
+    @Autowired
+    private CityRepository cityDAO;
     @Override
     /*
      * Equivalent de la méthode 'main' pour une application Spring Boot
@@ -28,6 +29,11 @@ public class ConsoleApp implements CommandLineRunner {
         log.info("On liste tous les enregistrements de la table 'Country'");
         List<Country> tousLesPays = countryDAO.findAll();
         for (Country c : tousLesPays) {
+            System.out.println(c);
+        }
+        log.info("On liste tous les enregistrements de la table 'City'");
+        List<City> touteslesvilles = cityDAO.findAll();
+        for (City c : touteslesvilles) {
             System.out.println(c);
         }
         
