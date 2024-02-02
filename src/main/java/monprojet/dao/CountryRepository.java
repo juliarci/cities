@@ -16,11 +16,11 @@ public interface CountryRepository extends JpaRepository<Country, Integer> {
     public Integer popCalcul(Integer idCountry);
 
    public Country findCountriesByName(String country);
-   @Query("SELECT country.name AS name, SUM(city.population) AS popCalcul FROM Country country join country.cities city group by country.id")
+   @Query("SELECT country.name AS name, SUM(city.population) AS pop FROM Country country join country.cities city group by country.id")
     public List<CountryNamePop> countryPop() ;
 
    public interface CountryNamePop{
        String getname();
-       Integer popCalcul();
+       Integer getpop();
    }
 }
